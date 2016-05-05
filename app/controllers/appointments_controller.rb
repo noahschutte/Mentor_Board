@@ -2,7 +2,7 @@ class AppointmentsController < ApplicationController
 
   def index
     if current_user.type == "Mentor"
-      @appointments = Appointment.where(mentor_id: current_user.id)
+      @appointments = Appointment.where(mentor_id: current_user.id).where('datetime > ?', DateTime.now).order(datetime: :asc)
     elsif
       @appointments = Appointment.all
     else
