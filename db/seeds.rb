@@ -8,16 +8,8 @@ def rand_num(lower = 1,upper = 3)
   rand(lower..upper)
 end
 
-def random_hour
-  rand(8..20)
-end
-
-def random_half_hour
-  [":00",":30"].sample
-end
-
-def random_time
-  "#{random_hour} #{random_half_hour}"
+def random_date_time
+  [(Time.now + 2*60*60*24), (Time.now - 2*60*60*24)].sample
 end
 
 def all_students_id
@@ -74,8 +66,7 @@ end
 rand_num(10, 20).times do
 
   Appointment.create!(
-    date: Date.today,
-    time: random_time,
+    datetime: random_date_time,
     mentor_id: random_mentor_id,
     student_id: random_student_id
     )
@@ -114,6 +105,33 @@ apps.each_with_index do |app, index|
   end
 end
 
+# nunchuck skills, seed-making skills, computer hacking skills, liger hunting skills
+
+star_wars_skills = ['force bond', 'force push', 'force saber throw', 'force jump', 'psychometry', 'force absorb', 'force choke', 'cleanse mind', 'force rage', 'force lightning']
+
+star_wars_skills.each do |skill|
+  Skill.create!(name:skill)
+end
+
+def all_skills
+  copy_all_skills = Skill.all.map do |skill|
+    skill
+  end
+  return copy_all_skills
+end
+appointments = Appointment.all
+
+appointments.each do |app|
+  random_number = rand_num(1,5)
+  random_number.times do
+    array_of_skills = all_skills
+    random_skill = array_of_skills.sample
+    AppointmentSkill.create!(
+      appointment_id: app.id,
+      skill_id: random_skill.id)
+    array_of_skills.delete(random_skill)
+  end
+end
 
 
 
