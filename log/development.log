@@ -14173,3 +14173,269 @@ ORDER BY c.conname
   [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2016-05-05"], ["time", "2000-01-01 17:30:00.000000"], ["mentor_id", 1], ["student_id", 5], ["created_at", "2016-05-05 20:02:58.149141"], ["updated_at", "2016-05-05 20:02:58.149141"]]
   [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
   [1m[36mAppointment Load (0.6ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  [1m[36mAppointment Load (0.6ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  [1m[35mAppointment Load (0.5ms)[0m  SELECT "appointments".* FROM "appointments"
+  [1m[36mAppointment Load (0.4ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[36m (29.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (65.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20160504211606)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying NOT NULL, "last_name" character varying NOT NULL, "email" character varying NOT NULL, "phone" character varying NOT NULL, "password_digest" character varying NOT NULL, "phase" character varying NOT NULL, "type" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_users_on_email" ON "users"  ("email")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160504211606"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Migrating to CreateAppointments (20160505155616)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "appointments" ("id" serial primary key, "date" date NOT NULL, "time" time NOT NULL, "mentor_id" integer, "student_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_appointments_on_mentor_id" ON "appointments"  ("mentor_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX  "index_appointments_on_student_id" ON "appointments"  ("student_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160505155616"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateReviews (20160505160936)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "reviews" ("id" serial primary key, "rating" integer NOT NULL, "content" character varying NOT NULL, "author_id" integer NOT NULL, "appointment_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160505160936"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateAppointmentSkills (20160505161247)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "appointment_skills" ("id" serial primary key, "appointment_id" integer NOT NULL, "skill_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160505161247"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateSkills (20160505161420)
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "skills" ("id" serial primary key, "name" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160505161420"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'appointment_skills'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'appointments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reviews'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'skills'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jon@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("type", "first_name", "last_name", "email", "phone", "password_digest", "phase", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["type", "Mentor"], ["first_name", "Jon"], ["last_name", "Schwartz"], ["email", "jon@email.com"], ["phone", "123456789"], ["password_digest", "$2a$10$39K1ybT4zi4/8xafft4VLumZgMGtEfVh8sLSzHqyQoTmZ3F1s2ofS"], ["phase", "2"], ["created_at", "2016-05-05 20:21:42.433933"], ["updated_at", "2016-05-05 20:21:42.433933"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'theo@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("type", "first_name", "last_name", "email", "phone", "password_digest", "phase", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["type", "Student"], ["first_name", "Theo"], ["last_name", "Paul"], ["email", "theo@email.com"], ["phone", "+64211149935"], ["password_digest", "$2a$10$VNxO6cXpx.lXMJkPKIx37eOtTZ2gAOLyLlS2BF3L6LEch34R5v85e"], ["phase", "1"], ["created_at", "2016-05-05 20:21:42.519612"], ["updated_at", "2016-05-05 20:21:42.519612"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'noah@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("type", "first_name", "last_name", "email", "phone", "password_digest", "phase", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["type", "Mentor"], ["first_name", "Noah"], ["last_name", "Schutte"], ["email", "noah@email.com"], ["phone", "987654321"], ["password_digest", "$2a$10$FmV/TvydCtSrNrer19zGc.3Sr7mv7tDCbUMpg9SpkOL5rVDV7s9kG"], ["phase", "3"], ["created_at", "2016-05-05 20:21:42.594975"], ["updated_at", "2016-05-05 20:21:42.594975"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'mable_turcotte@keeling.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("type", "first_name", "last_name", "email", "phone", "password_digest", "phase", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["type", "Mentor"], ["first_name", "Mable"], ["last_name", "Turcotte"], ["email", "mable_turcotte@keeling.net"], ["phone", "(928) 176-6485 x0026"], ["password_digest", "$2a$10$dh8xpWMCz/RvlJ5Q9aMqguU7memGMspigCHaZYtUDz/537Zuz4rRC"], ["phase", "2"], ["created_at", "2016-05-05 20:21:43.088121"], ["updated_at", "2016-05-05 20:21:43.088121"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mMentor Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2016-05-05"], ["time", "2000-01-01 19:00:00.000000"], ["mentor_id", 4], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.115359"], ["updated_at", "2016-05-05 20:21:43.115359"]]
+  [1m[35m (22.9ms)[0m  COMMIT
+  [1m[36mMentor Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2016-05-05"], ["time", "2000-01-01 09:00:00.000000"], ["mentor_id", 4], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.145671"], ["updated_at", "2016-05-05 20:21:43.145671"]]
+  [1m[36m (24.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mMentor Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2016-05-05"], ["time", "2000-01-01 20:30:00.000000"], ["mentor_id", 1], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.176253"], ["updated_at", "2016-05-05 20:21:43.176253"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mMentor Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')[0m
+  [1m[35mStudent Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2016-05-05"], ["time", "2000-01-01 17:00:00.000000"], ["mentor_id", 1], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.181241"], ["updated_at", "2016-05-05 20:21:43.181241"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mMentor Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2016-05-05"], ["time", "2000-01-01 15:30:00.000000"], ["mentor_id", 4], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.186262"], ["updated_at", "2016-05-05 20:21:43.186262"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mMentor Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2016-05-05"], ["time", "2000-01-01 13:30:00.000000"], ["mentor_id", 1], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.190919"], ["updated_at", "2016-05-05 20:21:43.190919"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mMentor Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2016-05-05"], ["time", "2000-01-01 14:00:00.000000"], ["mentor_id", 1], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.195685"], ["updated_at", "2016-05-05 20:21:43.195685"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mMentor Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2016-05-05"], ["time", "2000-01-01 19:00:00.000000"], ["mentor_id", 3], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.202934"], ["updated_at", "2016-05-05 20:21:43.202934"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mMentor Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2016-05-05"], ["time", "2000-01-01 17:00:00.000000"], ["mentor_id", 3], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.210244"], ["updated_at", "2016-05-05 20:21:43.210244"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mMentor Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2016-05-05"], ["time", "2000-01-01 09:30:00.000000"], ["mentor_id", 3], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.216434"], ["updated_at", "2016-05-05 20:21:43.216434"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mMentor Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2016-05-05"], ["time", "2000-01-01 15:00:00.000000"], ["mentor_id", 1], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.221830"], ["updated_at", "2016-05-05 20:21:43.221830"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mMentor Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2016-05-05"], ["time", "2000-01-01 19:30:00.000000"], ["mentor_id", 3], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.227332"], ["updated_at", "2016-05-05 20:21:43.227332"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mMentor Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2016-05-05"], ["time", "2000-01-01 08:30:00.000000"], ["mentor_id", 1], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.232280"], ["updated_at", "2016-05-05 20:21:43.232280"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mMentor Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2016-05-05"], ["time", "2000-01-01 12:30:00.000000"], ["mentor_id", 3], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.238412"], ["updated_at", "2016-05-05 20:21:43.238412"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mMentor Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2016-05-05"], ["time", "2000-01-01 08:30:00.000000"], ["mentor_id", 1], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.244720"], ["updated_at", "2016-05-05 20:21:43.244720"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mMentor Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2016-05-05"], ["time", "2000-01-01 14:00:00.000000"], ["mentor_id", 3], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.251559"], ["updated_at", "2016-05-05 20:21:43.251559"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mMentor Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('Mentor')
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."type" IN ('Student')[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "appointments" ("date", "time", "mentor_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2016-05-05"], ["time", "2000-01-01 16:00:00.000000"], ["mentor_id", 4], ["student_id", 2], ["created_at", "2016-05-05 20:21:43.258279"], ["updated_at", "2016-05-05 20:21:43.258279"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36mAppointment Load (0.4ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["rating", 4], ["content", "Salvia banjo street. Trust fund lumbersexual whatever plaid. Slow-carb kale chips banh mi bitters chambray. Typewriter readymade gluten-free kitsch. Fanny pack ramps before they sold out tilde."], ["author_id", 4], ["appointment_id", 1], ["created_at", "2016-05-05 20:21:43.275931"], ["updated_at", "2016-05-05 20:21:43.275931"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["rating", 2], ["content", "Freegan pork belly squid cornhole truffaut. Pork belly twee five dollar toast meh tousled. Mustache iphone chia retro photo booth crucifix five dollar toast. Ethical crucifix keffiyeh."], ["author_id", 1], ["appointment_id", 3], ["created_at", "2016-05-05 20:21:43.287706"], ["updated_at", "2016-05-05 20:21:43.287706"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["rating", 1], ["content", "Cornhole lumbersexual keytar food truck listicle you probably haven't heard of them dreamcatcher. Vice mumblecore direct trade organic echo. Pop-up kitsch distillery leggings migas +1 cardigan."], ["author_id", 1], ["appointment_id", 3], ["created_at", "2016-05-05 20:21:43.290616"], ["updated_at", "2016-05-05 20:21:43.290616"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["rating", 4], ["content", "Pour-over chambray 90's small batch. Gentrify cardigan hella. Five dollar toast tumblr synth roof sustainable hashtag kogi. Five dollar toast trust fund flexitarian cleanse green juice selfies chambray."], ["author_id", 1], ["appointment_id", 4], ["created_at", "2016-05-05 20:21:43.293865"], ["updated_at", "2016-05-05 20:21:43.293865"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["rating", 3], ["content", "Gluten-free before they sold out twee leggings stumptown mixtape cred umami. Typewriter wolf kombucha. Vhs mlkshk waistcoat wayfarers trust fund gluten-free."], ["author_id", 1], ["appointment_id", 6], ["created_at", "2016-05-05 20:21:43.296444"], ["updated_at", "2016-05-05 20:21:43.296444"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["rating", 1], ["content", "Gastropub +1 vhs photo booth park selvage salvia. Tote bag viral polaroid taxidermy tumblr. Williamsburg cred thundercats health squid keytar roof. Banjo dreamcatcher taxidermy. Farm-to-table tote bag shabby chic."], ["author_id", 1], ["appointment_id", 7], ["created_at", "2016-05-05 20:21:43.298948"], ["updated_at", "2016-05-05 20:21:43.298948"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["rating", 5], ["content", "Kogi bicycle rights tumblr 8-bit microdosing kale chips. Loko swag aesthetic listicle venmo twee beard. Kale chips occupy sartorial beard 3 wolf moon single-origin coffee tumblr narwhal. Kitsch tacos five dollar toast waistcoat artisan authentic yr art party. Raw denim crucifix seitan."], ["author_id", 1], ["appointment_id", 7], ["created_at", "2016-05-05 20:21:43.301385"], ["updated_at", "2016-05-05 20:21:43.301385"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["rating", 1], ["content", "Drinking park lumbersexual scenester forage. Yuccie venmo street hashtag brooklyn flexitarian actually. Occupy gluten-free stumptown. Put a bird on it ethical swag schlitz quinoa. Raw denim chillwave stumptown mixtape letterpress."], ["author_id", 3], ["appointment_id", 9], ["created_at", "2016-05-05 20:21:43.303813"], ["updated_at", "2016-05-05 20:21:43.303813"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["rating", 4], ["content", "Church-key +1 health drinking farm-to-table banh mi shoreditch. Lomo kickstarter cray chia. Bespoke humblebrag shabby chic gentrify. Hammock thundercats carry health xoxo selfies. Occupy church-key cray."], ["author_id", 3], ["appointment_id", 9], ["created_at", "2016-05-05 20:21:43.306133"], ["updated_at", "2016-05-05 20:21:43.306133"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["rating", 5], ["content", "Shoreditch yr mustache dreamcatcher migas farm-to-table park squid. Tousled microdosing master flannel deep v cred blue bottle health. Xoxo diy etsy locavore health skateboard. Dreamcatcher narwhal migas +1. Seitan hoodie lomo ennui echo polaroid tacos."], ["author_id", 1], ["appointment_id", 11], ["created_at", "2016-05-05 20:21:43.308545"], ["updated_at", "2016-05-05 20:21:43.308545"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["rating", 3], ["content", "Gentrify pug chartreuse salvia. Salvia gluten-free sriracha. Iphone selfies drinking sriracha ugh park lo-fi."], ["author_id", 3], ["appointment_id", 12], ["created_at", "2016-05-05 20:21:43.310804"], ["updated_at", "2016-05-05 20:21:43.310804"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["rating", 3], ["content", "Chartreuse offal squid photo booth. Trust fund chambray williamsburg. Hashtag vhs salvia +1 plaid truffaut."], ["author_id", 1], ["appointment_id", 13], ["created_at", "2016-05-05 20:21:43.312998"], ["updated_at", "2016-05-05 20:21:43.312998"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["rating", 4], ["content", "Tattooed pbr&b craft beer blog yr vice. Freegan dreamcatcher austin fixie tousled. Chillwave bushwick lumbersexual tofu forage. Tousled chambray yuccie pork belly meggings park."], ["author_id", 3], ["appointment_id", 14], ["created_at", "2016-05-05 20:21:43.315134"], ["updated_at", "2016-05-05 20:21:43.315134"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["rating", 3], ["content", "Shabby chic echo kogi before they sold out trust fund austin hashtag five dollar toast. Vice pour-over disrupt goth. Meditation beard bespoke normcore pabst lomo."], ["author_id", 3], ["appointment_id", 14], ["created_at", "2016-05-05 20:21:43.317266"], ["updated_at", "2016-05-05 20:21:43.317266"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["rating", 1], ["content", "Letterpress mixtape farm-to-table tofu aesthetic post-ironic microdosing blue bottle. 8-bit shabby chic austin green juice yuccie everyday. Gastropub squid leggings. Roof trust fund banh mi chartreuse umami typewriter tilde. Brooklyn venmo meditation bicycle rights everyday tumblr xoxo drinking."], ["author_id", 1], ["appointment_id", 15], ["created_at", "2016-05-05 20:21:43.319678"], ["updated_at", "2016-05-05 20:21:43.319678"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["rating", 5], ["content", "Tousled five dollar toast godard. Readymade bitters thundercats. Dreamcatcher lumbersexual vhs mustache tofu semiotics keytar. Small batch biodiesel bicycle rights."], ["author_id", 3], ["appointment_id", 16], ["created_at", "2016-05-05 20:21:43.321894"], ["updated_at", "2016-05-05 20:21:43.321894"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["rating", 1], ["content", "Chambray dreamcatcher goth small batch. Listicle chia put a bird on it truffaut pitchfork five dollar toast. Knausgaard dreamcatcher helvetica single-origin coffee. Goth brooklyn franzen. Biodiesel pork belly farm-to-table salvia park cliche master."], ["author_id", 4], ["appointment_id", 17], ["created_at", "2016-05-05 20:21:43.324159"], ["updated_at", "2016-05-05 20:21:43.324159"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mReview Load (0.7ms)[0m  SELECT "reviews".* FROM "reviews"
+  [1m[36mAppointment Load (0.7ms)[0m  [1mSELECT "appointments".* FROM "appointments"[0m

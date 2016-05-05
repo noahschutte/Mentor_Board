@@ -1,5 +1,8 @@
 require 'faker'
 
+def true_or_false
+  [true, false].sample
+end
 
 def rand_num(lower = 1,upper = 3)
   rand(lower..upper)
@@ -65,6 +68,9 @@ end
 
 #Seed Appointments
 
+# could improve this logic by adding randomness to whether a student has signed up to a mentors session/appointment or not.
+# also I think having a snake booking (booking sessions in succession) would be pretty sweet
+
 rand_num(10, 20).times do
 
   Appointment.create!(
@@ -75,3 +81,40 @@ rand_num(10, 20).times do
     )
 
 end
+
+# Seed Reviews
+
+apps = Appointment.all
+app_mentor_ids = apps.map do |app|
+  app.mentor_id
+end
+
+app_student_ids = apps.map do |app|
+  app.student_id
+end
+
+apps.each_with_index do |app, index|
+  # random mentor review of the session
+  if true_or_false
+    Review.create!(
+      rating: rand_num(1,5),
+      content: Faker::Hipster.paragraph,
+      author_id: app_mentor_ids[index],
+      appointment_id: app.id
+      )
+  end
+  # random student review of the session
+  if true_or_false
+    Review.create!(
+      rating: rand_num(1,5),
+      content: Faker::Hipster.paragraph,
+      author_id: app_mentor_ids[index],
+      appointment_id: app.id
+      )
+  end
+end
+
+
+
+
+
