@@ -20,6 +20,7 @@ class AppointmentsController < ApplicationController
       @type = @reviews.first.author.type
     elsif @reviews.last
       @type = @reviews.last.author.type
+    else
     end
   end
 
@@ -29,8 +30,10 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @time_format = params[:appointment]["time(4i)"].to_s + ":" + params[:appointment]["time(5i)"].to_s
-    @appointment = Appointment.new(date: params[:appointment][:date], time: @time_format, mentor_id: current_user.id)
+    zone = ActiveSupport::TimeZone.new("Eastern Time (US & Canada)")
+    Time.now.in_time_zone(zone)
+    @datetime = Time.new(params[:appointment][:datetime][0..3], params[:appointment][:datetime][5..6], params[:appointment][:datetime][8..9], params[:appointment]["datetime(4i)"], params[:appointment]["datetime(5i)"]).in_time_zone(zone)
+    @appointment = Appointment.new(datetime: @datetime, mentor_id: current_user.id)
     params[:appointment][:skills].select do |skill, value|
       if value == "1"
         @appointment.skills << Skill.where(name: skill)
@@ -48,6 +51,6 @@ class AppointmentsController < ApplicationController
 
   private
   def appointment_params
-    params.require(:appointment).permit(:date, :time, :mentor_id)
+    params.require(:appointment).permit(:datetime, :mentor_id)
   end
 end
