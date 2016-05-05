@@ -12,8 +12,8 @@ Phase: <%= @user.phase %><br>
   <% @appointments.each do |appointment| %>
     <div>
       <h3><%= link_to "View Appointment", appointment_path(appointment.id) %></h3>
-      Date: <%= appointment.datetime.date %><br>
-      Time: <%= appointment.datetime.time %><br>
+      Date: <%= appointment.datetime.strftime("%B %d, %Y") %><br>
+      Time: <%= appointment.datetime.strftime("%I:%M%p") %><br>
       Student: <%= appointment.student.first_name %>
       <%= appointment.student.last_name %><br>
     </div><br>

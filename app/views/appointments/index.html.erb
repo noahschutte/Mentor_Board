@@ -2,7 +2,7 @@
 <div class="appointment-index-info">
 Mentor Name: <%= appointment.mentor.first_name %>
 <%= appointment.mentor.last_name %><br>
-Date: <%= appointment.datetime %><br>
+Date: <%= appointment.datetime.strftime("%B %d, %Y") %><br>
 Time: <%= appointment.datetime.strftime("%I:%M%p") %><br>
 <% if appointment.student %>
   <%= appointment.student.first_name %>
