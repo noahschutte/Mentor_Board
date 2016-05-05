@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:destroy, :new, :create]
   get "login" => 'sessions#new', :as => "login"
   get "logout" => 'sessions#destroy', :as => "logout"
+  resources :appointments, only: [:new, :show, :index]
 
 end
   # The priority is based upon order of creation: first created -> highest priority.

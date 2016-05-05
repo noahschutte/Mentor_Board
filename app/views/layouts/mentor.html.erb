@@ -13,8 +13,8 @@
     <% end %>
 
     <ul>
-      <li><%= link_to "Create Appointment"  %></li>
-      <li><%= link_to "View Appointments"  %></li>
+      <li><%= link_to "Create Appointment", new_appointment_path %></li>
+      <li><%= link_to "View Appointments", appointments_path %></li>
       <li><%= link_to "Profile", user_path(current_user) %></li>
       <li><%= link_to "Logout", logout_path %></li>
 
