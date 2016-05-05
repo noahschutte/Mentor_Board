@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :email, :phone, :phase, :type, presence: true
   validates :email, uniqueness: true
 
+  # USER_TYPES = [Mentor, Student]
 end
