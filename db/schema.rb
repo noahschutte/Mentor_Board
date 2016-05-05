@@ -24,8 +24,7 @@ ActiveRecord::Schema.define(version: 20160505161420) do
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.date     "date",       null: false
-    t.time     "time",       null: false
+    t.datetime "datetime",   null: false
     t.integer  "mentor_id"
     t.integer  "student_id"
     t.datetime "created_at", null: false

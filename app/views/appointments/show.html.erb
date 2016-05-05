@@ -19,33 +19,35 @@
 <hr>
 <div>
   <h3>Appointment Info</h3>
-  Date: <%= @appointment.date %><br>
-  Time: <%= @appointment.time %><br>
-  Skills: <%= @appointment.skills.first.name %>
+  Date: <%= @appointment.datetime %><br>
+  Time: <%= @appointment.datetime %><br>
+  Skills: <%= @appointment %>
 </div>
 <hr>
-<div>
-  <% if @type == 'Mentor'%>
-<!-- ^create helper method for above conditional logic -->
-    <h4>Mentor Feedback For Student</h4>
-    <% @reviews.each do |review| %>
-      <p><%= review.rating %></p>
-      <p><%= review.content %></p>
-    <% end %>
-  <% else %>
-    <h3>Reviews</h3>
-    <%= form_for @review do |f| %>
-      <p>
-        <%= f.label :rating %><br>
-        <%= f.text_field :rating %>
-      </p>
-      <p>
-        <%= f.label :content %><br>
-        <%= f.text_area :content %>
-      </p>
-      <p>
-      <%= f.submit %>
-      </p>
-    <% end %>
+  <% if @appointment.time + 30*60 < Time.now %>
+  <div>
+    <% if @type == 'Mentor'%>
+    <!-- ^create helper method for above conditional logic -->
+        <h4>Mentor Feedback For Student</h4>
+        <% @reviews.each do |review| %>
+          <p><%= review.rating %></p>
+          <p><%= review.content %></p>
+        <% end %>
+      <% else %>
+        <h3>Reviews</h3>
+        <%= form_for @review do |f| %>
+          <p>
+            <%= f.label :rating %><br>
+            <%= f.text_field :rating %>
+          </p>
+          <p>
+            <%= f.label :content %><br>
+            <%= f.text_area :content %>
+          </p>
+          <p>
+          <%= f.submit %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
-</div>

@@ -1,5 +1,5 @@
 class Appointment < ActiveRecord::Base
-  validates :date, :time, presence: true
+  validates :datetime, presence: true
 
   has_many :reviews
   has_many :appointment_skills
