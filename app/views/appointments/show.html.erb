@@ -2,7 +2,7 @@
   <div id="mentor-info">
     <h3>Mentor Information</h3>
     Name: <%= @mentor.first_name %>
-    <%= @mentor.last_name %>
+    <%= @mentor.last_name %><br>
     Phone: <%= @mentor.phone %><br>
     Email: <%= @mentor.email %><br>
     Phase: <%= @mentor.phase %>
@@ -25,14 +25,12 @@
 </div>
 <hr>
 <div>
-  <% if @reviews.first.author.type == 'Mentor' || @reviews.last.author.type == 'Mentor'%>
+  <% if @type == 'Mentor'%>
 <!-- ^create helper method for above conditional logic -->
     <h4>Mentor Feedback For Student</h4>
     <% @reviews.each do |review| %>
-
       <p><%= review.rating %></p>
       <p><%= review.content %></p>
-
     <% end %>
   <% else %>
     <h3>Reviews</h3>
@@ -49,7 +47,5 @@
       <%= f.submit %>
       </p>
     <% end %>
-
   <% end %>
-
 </div>
