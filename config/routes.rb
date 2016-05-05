@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:destroy, :new, :create]
   get "login" => 'sessions#new', :as => "login"
   get "logout" => 'sessions#destroy', :as => "logout"
-  resources :appointments, only: [:new, :show, :index]
+  resources :appointments, only: [:new, :show, :index, :create]
   resources :reviews, only: [:create]
 
 end

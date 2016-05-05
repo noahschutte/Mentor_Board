@@ -1,9 +1,9 @@
 <% @appointments.each do |appointment| %>
-<div>
-<%= appointment.mentor.first_name %>
-<%= appointment.mentor.last_name %>
-<%= appointment.date %>
-<%= appointment.time %>
+<div class="appointment-index-info">
+Mentor Name: <%= appointment.mentor.first_name %>
+<%= appointment.mentor.last_name %><br>
+Date: <%= appointment.date %><br>
+Time: <%= appointment.time %><br>
 <% if appointment.student %>
   <%= appointment.student.first_name %>
   <%= appointment.student.last_name %>

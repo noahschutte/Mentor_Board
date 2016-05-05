@@ -3,26 +3,21 @@
 <%= form_for @appointment do |f| %>
   <p>
     <%= f.label :date %><br>
-    <%= f.text_field :date %>
+    <%= f.date_field :date %>
   </p>
   <p>
     <%= f.label :time %><br>
-    <%= f.text_field :time %>
+    <%= f.time_select :time, {minute_step: 30, ampm: true, start_hour: 8, end_hour: 20}%>
   </p>
-  <p>
-    <%= f.label :skills %><br>
-    <%= f.text_field :skills %>
-  </p>
-  <p>
-    <%= f.label :skills %><br>
-    <%= f.text_field :skills %>
-  </p>
-  <p>
-    <%= f.label :skills %><br>
-    <%= f.text_field :skills %>
-  </p>
+
+  <%= f.fields_for :skills do |skills_fields| %>
+    <% @skills.each do |skill| %>
+       <%= skills_fields.check_box skill.name %><%= skill.name %><br>
+    <% end %>
+  <% end %>
+
   <p>
     <%= f.submit %>
   </p>
-<% end %>
 
+<% end %>
