@@ -1,1 +1,55 @@
-show.html.erb
+<div>
+  <div id="mentor-info">
+    <h3>Mentor Information</h3>
+    Name: <%= @mentor.first_name %>
+    <%= @mentor.last_name %>
+    Phone: <%= @mentor.phone %><br>
+    Email: <%= @mentor.email %><br>
+    Phase: <%= @mentor.phase %>
+  </div>
+  <div id="student-info">
+    <h3>Student Information</h3>
+    Name: <%= @student.first_name %>
+    <%= @student.last_name %><br>
+    Phone: <%= @student.phone %><br>
+    Email: <%= @student.email %><br>
+    Phase: <%= @student.phase %>
+  </div>
+</div>
+<hr>
+<div>
+  <h3>Appointment Info</h3>
+  Date: <%= @appointment.date %><br>
+  Time: <%= @appointment.time %><br>
+  Skills: <%= @appointment.skills.first.name %>
+</div>
+<hr>
+<div>
+  <% if @reviews.first.author.type == 'Mentor' || @reviews.last.author.type == 'Mentor'%>
+<!-- ^create helper method for above conditional logic -->
+    <h4>Mentor Feedback For Student</h4>
+    <% @reviews.each do |review| %>
+
+      <p><%= review.rating %></p>
+      <p><%= review.content %></p>
+
+    <% end %>
+  <% else %>
+    <h3>Reviews</h3>
+    <%= form_for @review do |f| %>
+      <p>
+        <%= f.label :rating %><br>
+        <%= f.text_field :rating %>
+      </p>
+      <p>
+        <%= f.label :content %><br>
+        <%= f.text_area :content %>
+      </p>
+      <p>
+      <%= f.submit %>
+      </p>
+    <% end %>
+
+  <% end %>
+
+</div>

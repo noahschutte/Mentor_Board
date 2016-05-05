@@ -9,9 +9,6 @@
 <body>
   <header>
     <h1><%= link_to "Force Connect", root_path%></h1>
-    <% if logged_in? %>
-      <h1><%= link_to "Force Connect", user_path(current_user) %></h1>
-    <% end %>
     <hr>
   </header>
 <%= yield %>

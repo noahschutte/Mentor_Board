@@ -1,7 +1,16 @@
 class AppointmentsController < ApplicationController
 
+  def index
+    @appointments = Appointment.all
+  end
+
   def show
     @appointment = Appointment.find(params[:id])
+    @review = Review.new
+    @student = @appointment.student
+    @mentor = @appointment.mentor
+    @reviews = @appointment.reviews
+    @type = @reviews.first.author.type
   end
 
   def new
