@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @appointments = Appointment.where(mentor_id: current_user.id).where("date < ?", Date.today + 1)
   end
 
   private

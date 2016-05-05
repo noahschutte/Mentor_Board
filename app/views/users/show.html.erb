@@ -1,7 +1,21 @@
-<%= @user.first_name %>
-<%= @user.last_name %>
-<%= @user.email %>
-<%= @user.phone %>
-<%= @user.phase %>
-<%= @user.type %>
+<div>
+<h1><%= @user.first_name %> <%= @user.last_name %>'s Profile</h1>
 
+Email: <%= @user.email %><br>
+Phone: <%= @user.phone %><br>
+Phase: <%= @user.phase %><br>
+<%= @user.first_name %> is a <%= @user.type %><br>
+</div>
+<hr>
+<h2>Past Mentoring Activity:</h2>
+<div>
+  <% @appointments.each do |appointment| %>
+    <div>
+      <h3><%= link_to "View Appointment", appointment_path(appointment.id) %></h3>
+      Date: <%= appointment.date %><br>
+      Time: <%= appointment.time %><br>
+      Student: <%= appointment.student.first_name %>
+      <%= appointment.student.last_name %><br>
+    </div><br>
+  <% end %>
+</div>
