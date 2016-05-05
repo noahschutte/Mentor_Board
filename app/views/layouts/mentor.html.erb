@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Force Connect</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <% if logged_in? %>
+      <h1><%= link_to "Force Connect", user_path(current_user) %></h1>
+    <% end %>
+
+    <ul>
+      <li><%= link_to "Create Appointment", new_appointment_path %></li>
+      <li><%= link_to "View Appointments", appointments_path %></li>
+      <li><%= link_to "Profile", user_path(current_user) %></li>
+      <li><%= link_to "Logout", logout_path %></li>
+
+     </ul>
+    <hr>
+  </header>
+
+<%= yield %>
+
+</body>
+</html>
