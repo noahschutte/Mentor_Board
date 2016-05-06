@@ -12,17 +12,6 @@
 <h2>Past Mentoring Activity:</h2>
 <table>
   <% @appointments.each do |appointment| %>
-<<<<<<< 4feb50d5fcad3971f9cb9eae3291901c9d084ae0
-    <div>
-      <h3><%= link_to "View Appointment", appointment_path(appointment.id) %></h3>
-      Date: <%= appointment.datetime.strftime("%B %d, %Y") %><br>
-      Time: <%= appointment.datetime.strftime("%I:%M%p") %><br>
-      <% if appointment.student %>
-      Student: <%= appointment.student.first_name %>
-      <%= appointment.student.last_name %><br>
-      <% end %>
-    </div><br>
-=======
 	    <tr>
 	      <td><h3><%= link_to "View Appointment", appointment_path(appointment.id) %></h3></td>
 	      <td>Date: <%= appointment.datetime.strftime("%B %d, %Y") %></td>
@@ -30,6 +19,5 @@
 	      <td>Student: <%= appointment.student.first_name %>
 	      <%= appointment.student.last_name %></td>
 	    </tr>
->>>>>>> CSS for the Mentor Board
   <% end %>
 </table>
