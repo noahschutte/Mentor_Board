@@ -54,10 +54,5 @@ group :production do
   gem 'rails_12factor'
 end
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 7d98391ad9cba36fcceea8528ae33f4521292231
-
 gem 'puma'
 
