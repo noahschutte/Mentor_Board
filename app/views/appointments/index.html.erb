@@ -1,13 +1,14 @@
+<h3>Upcoming Appointments:</h3>
 <% @appointments.each do |appointment| %>
-<div class="appointment-index-info">
-Mentor Name: <%= appointment.mentor.first_name %>
-<%= appointment.mentor.last_name %><br>
-Date: <%= appointment.datetime.strftime("%B %d, %Y") %><br>
-Time: <%= appointment.datetime.strftime("%I:%M%p") %><br>
-<% if appointment.student %>
-  <%= appointment.student.first_name %>
-  <%= appointment.student.last_name %>
-  <%= link_to "Appointment Info", appointment_path(appointment) %>
+  <div class="appointment-index-info">
+  <h4>Mentor Name: <%= appointment.mentor.first_name %>
+  <%= appointment.mentor.last_name %></h4>
+  Date: <%= appointment.datetime.strftime("%B %d, %Y") %><br>
+  Time: <%= appointment.datetime.strftime("%I:%M%p") %><br>
+  <% if appointment.student %>
+    Student: <%= appointment.student.first_name %>
+    <%= appointment.student.last_name %><br>
+    <%= link_to "Scheduled Appointment Info", appointment_path(appointment) %>
 <% end %>
 </div>
 <% end %>
