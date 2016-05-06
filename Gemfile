@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'carrierwave'
+gem "fog-aws"
+gem 'carrierwave-aws'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -51,6 +54,10 @@ group :production do
   gem 'rails_12factor'
 end
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7d98391ad9cba36fcceea8528ae33f4521292231
 
 gem 'puma'
 

@@ -1,51 +1,57 @@
 <table class="create-user-form">
-  <%= form_for @user do |f| %>
+  <%= form_for @user, :html => {:multipart => true} do |f| %>
     <tr>
-    <td>
-      <%= f.label :type %>
-      <%= f.text_field :type %>
-    </td>
+      <td>
+        <%= f.label :type %>
+        <%= f.text_field :type %>
+      </td>
     </tr>
     <tr>
-    <td>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-    </td>
+      <td>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </td>
     </tr>
     <tr>
-    <td>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-    </td>
+      <td>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </td>
     </tr>
     <tr>
-    <td>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    </td>
+      <td>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </td>
     </tr>
     <tr>
-    <td>
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
-    </td>
+      <td>
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
+      </td>
     </tr>
     <tr>
-    <td>
-    <%= f.label :phase %>
-    <%= f.text_field :phase %>
-    </td>
+      <td>
+        <%= f.label :phase %>
+        <%= f.text_field :phase %>
+      </td>
     </tr>
     <tr>
-    <td>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    </td>
+      <td>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </td>
     </tr>
     <tr>
-    <td>
-    <%= f.submit %>
-    </td>
+      <td>
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.submit %>
+      </td>
     </tr>
   <% end %>
 </table>
