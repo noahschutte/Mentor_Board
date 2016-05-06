@@ -5,10 +5,26 @@
   <%= appointment.mentor.last_name %></h4>
   Date: <%= appointment.datetime.strftime("%B %d, %Y") %><br>
   Time: <%= appointment.datetime.strftime("%I:%M%p") %><br>
+  <!-- Add status of appointment (Open or Booked) -->
+  Appointment Status:
+  <% if appointment.student %>
+    Booked<br>
+  <% else %>
+    Available<br>
+    <% if current_user.type == 'Student' %>
+      <%= form_for appointment, method: :PATCH do |f| %>
+        <%= f.submit "Book Now" %>
+      <% end %>
+    <% end %>
+  <% end %>
+
   <% if appointment.student %>
     Student: <%= appointment.student.first_name %>
     <%= appointment.student.last_name %><br>
-    <%= link_to "Scheduled Appointment Info", appointment_path(appointment) %>
-<% end %>
+    <% if appointment.student.id == current_user.id || appointment.mentor.id == current_user.id %>
+      <%= link_to "Scheduled Appointment Info", appointment_path(appointment) %><br>
+    <% end %>
+
+  <% end %>
 </div>
 <% end %>

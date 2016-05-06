@@ -8,12 +8,14 @@
     Phase: <%= @mentor.phase %>
   </div>
   <div id="student-info">
+    <% if @student %>
     <h3>Student Information</h3>
     Name: <%= @student.first_name %>
     <%= @student.last_name %><br>
     Phone: <%= @student.phone %><br>
     Email: <%= @student.email %><br>
     Phase: <%= @student.phase %>
+    <% end %>
   </div>
 </div>
 <hr>
@@ -23,17 +25,23 @@
   Time: <%= @appointment.datetime.strftime("%I:%M%p") %><br>
   Skills: <% @skills.each do |skill| %>
     <%= skill.name %>
+  <% end %>
+  <% if current_user.type == 'Student' %>
+    <%= form_for @appointment, method: :PATCH do |f| %>
+      <%= f.submit "Cancel Session" %>
     <% end %>
+  <% end %>
 </div>
 <hr>
-  <% if @appointment.datetime + 30*60 < Time.now %>
   <div>
+  <% if @appointment.datetime + 30*60 < Time.now %>
     <% if @type == 'Mentor' || @type == 'Student' %>
     <!-- ^create helper method for above conditional logic -->
       <h3>Reviews</h3>
         <% @reviews.each do |review| %>
-          <p><%= review.rating %></p>
-          <p><%= review.content %></p>
+          <p>Review Author: <%= review.author.first_name %> <%= review.author.last_name %></p>
+          <p>Session Rating: <%= review.rating %></p>
+          <p>Feedback: <%= review.content %></p>
         <% end %>
       <% else %>
         <h3>Reviews</h3>
