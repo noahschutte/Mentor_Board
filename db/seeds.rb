@@ -1,4 +1,4 @@
-herorequire 'faker'
+require 'faker'
 
 def true_or_false
   [true, false].sample
