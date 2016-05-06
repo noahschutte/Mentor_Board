@@ -1,9 +1,10 @@
 <div>
 <h1><%= @user.first_name %> <%= @user.last_name %>'s Profile</h1>
-
+<%= image_tag @user.image_url.to_s %>
 Email: <%= @user.email %><br>
 Phone: <%= @user.phone %><br>
 Phase: <%= @user.phase %><br>
+
 <%= @user.first_name %> is a <%= @user.type %><br>
 </div>
 <hr>
