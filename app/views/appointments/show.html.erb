@@ -28,9 +28,9 @@
 <hr>
   <% if @appointment.datetime + 30*60 < Time.now %>
   <div>
-    <% if @type == 'Mentor'%>
+    <% if @type == 'Mentor' || @type == 'Student' %>
     <!-- ^create helper method for above conditional logic -->
-        <h4>Mentor Feedback For Student</h4>
+      <h3>Reviews</h3>
         <% @reviews.each do |review| %>
           <p><%= review.rating %></p>
           <p><%= review.content %></p>

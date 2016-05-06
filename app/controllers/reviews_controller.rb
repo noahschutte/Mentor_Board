@@ -5,7 +5,6 @@ class ReviewsController < ApplicationController
     @review.author_id = current_user.id
     @review.appointment_id = params[:appointment_id]
     if @review.save
-      binding.pry
       redirect_to appointment_path(@review.appointment_id)
     else
       redirect_to appointment_path(@review.appointment_id)

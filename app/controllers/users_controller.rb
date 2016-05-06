@@ -22,7 +22,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @appointments = Appointment.where(mentor_id: current_user.id).where("datetime < ?", DateTime.now).order(datetime: :desc)
+    if current_user.type == "Mentor"
+      @appointments = Appointment.where(mentor_id: current_user.id).where("datetime < ?", DateTime.now).order(datetime: :desc)
+    elsif current_user.type == "Student"
+      @appointments = Appointment.where(student_id: current_user.id).where("datetime < ?", DateTime.now).order(datetime: :desc)
+    end
   end
 
   private

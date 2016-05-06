@@ -26961,3 +26961,419 @@ Processing by UsersController#show as HTML
   [1m[36mAppointment Load (0.3ms)[0m  [1mSELECT "appointments".* FROM "appointments" WHERE "appointments"."mentor_id" = $1 AND (datetime < '2016-05-06 00:00:34.411637')  ORDER BY "appointments"."datetime" DESC[0m  [["mentor_id", 2]]
   Rendered users/show.html.erb within layouts/student (1.3ms)
 Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for ::1 at 2016-05-05 20:02:57 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mAppointment Load (0.3ms)[0m  [1mSELECT "appointments".* FROM "appointments" WHERE "appointments"."student_id" = $1 AND (datetime < '2016-05-06 00:02:57.136354')  ORDER BY "appointments"."datetime" DESC[0m  [["student_id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered users/show.html.erb within layouts/student (8.2ms)
+Completed 200 OK in 48ms (Views: 21.6ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-05 20:02:57 -0400
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-05-05 20:02:57 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-05 20:02:57 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-05 20:02:57 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-05 20:02:57 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-05 20:02:57 -0400
+
+
+Started GET "/users/2" for ::1 at 2016-05-05 20:03:31 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mAppointment Load (0.3ms)[0m  SELECT "appointments".* FROM "appointments" WHERE "appointments"."student_id" = $1 AND (datetime < '2016-05-06 00:03:31.686023')  ORDER BY "appointments"."datetime" DESC  [["student_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered users/show.html.erb within layouts/student (10.3ms)
+Completed 200 OK in 54ms (Views: 24.7ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-05 20:03:31 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-05 20:03:31 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-05 20:03:31 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-05 20:03:31 -0400
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-05-05 20:03:31 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-05 20:03:31 -0400
+
+
+Started GET "/appointments/1" for ::1 at 2016-05-05 20:03:36 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAppointment Load (0.3ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1[0m  [["appointment_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1  [["appointment_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mSkill Load (0.4ms)[0m  [1mSELECT "skills".* FROM "skills" INNER JOIN "appointment_skills" ON "skills"."id" = "appointment_skills"."skill_id" WHERE "appointment_skills"."appointment_id" = $1[0m  [["appointment_id", 1]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  [["appointment_id", 1]]
+  Rendered appointments/show.html.erb within layouts/student (7.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 60ms (Views: 22.7ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/appointments/1" for ::1 at 2016-05-05 20:03:44 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAppointment Load (0.2ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1[0m  [["appointment_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1  [["appointment_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mSkill Load (0.4ms)[0m  [1mSELECT "skills".* FROM "skills" INNER JOIN "appointment_skills" ON "skills"."id" = "appointment_skills"."skill_id" WHERE "appointment_skills"."appointment_id" = $1[0m  [["appointment_id", 1]]
+  [1m[35mReview Load (0.3ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  [["appointment_id", 1]]
+  Rendered appointments/show.html.erb within layouts/student (2.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 21ms (Views: 15.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/appointments/1" for ::1 at 2016-05-05 20:04:00 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAppointment Load (0.2ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1[0m  [["appointment_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1  [["appointment_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mSkill Load (0.3ms)[0m  [1mSELECT "skills".* FROM "skills" INNER JOIN "appointment_skills" ON "skills"."id" = "appointment_skills"."skill_id" WHERE "appointment_skills"."appointment_id" = $1[0m  [["appointment_id", 1]]
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  [["appointment_id", 1]]
+  Rendered appointments/show.html.erb within layouts/student (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 22ms (Views: 15.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/2" for ::1 at 2016-05-05 20:06:19 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mAppointment Load (0.3ms)[0m  [1mSELECT "appointments".* FROM "appointments" WHERE "appointments"."student_id" = $1 AND (datetime < '2016-05-06 00:06:19.299896')  ORDER BY "appointments"."datetime" DESC[0m  [["student_id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered users/show.html.erb within layouts/student (4.4ms)
+Completed 200 OK in 32ms (Views: 19.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-05 20:06:19 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-05 20:06:19 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-05 20:06:19 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-05 20:06:19 -0400
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-05-05 20:06:19 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-05 20:06:19 -0400
+
+
+Started GET "/appointments/17" for ::1 at 2016-05-05 20:06:20 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mAppointment Load (0.2ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 17]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1[0m  [["appointment_id", 17]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" DESC LIMIT 1  [["appointment_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mSkill Load (0.2ms)[0m  SELECT "skills".* FROM "skills" INNER JOIN "appointment_skills" ON "skills"."id" = "appointment_skills"."skill_id" WHERE "appointment_skills"."appointment_id" = $1  [["appointment_id", 17]]
+  Rendered appointments/show.html.erb within layouts/student (4.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 26ms (Views: 20.6ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/appointments/17/reviews" for ::1 at 2016-05-05 20:06:26 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qIjtu8WvY7VQuZAD5YCJstHcW8LhF/R+lfCH3VoyQLiHhsEvO4prrwugg1SYShEwSL0qQMvRgS8KcZSzmpkPbA==", "review"=>{"rating"=>"5", "content"=>"liugpiugb"}, "commit"=>"Create Review", "appointment_id"=>"17"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["rating", 5], ["content", "liugpiugb"], ["author_id", 2], ["appointment_id", 17], ["created_at", "2016-05-06 00:06:26.460884"], ["updated_at", "2016-05-06 00:06:26.460884"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/appointments/17
+Completed 302 Found in 6321ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/appointments/17" for ::1 at 2016-05-05 20:06:32 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mAppointment Load (0.2ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 17]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1[0m  [["appointment_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1  [["appointment_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mSkill Load (0.3ms)[0m  [1mSELECT "skills".* FROM "skills" INNER JOIN "appointment_skills" ON "skills"."id" = "appointment_skills"."skill_id" WHERE "appointment_skills"."appointment_id" = $1[0m  [["appointment_id", 17]]
+  Rendered appointments/show.html.erb within layouts/student (3.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+Completed 200 OK in 24ms (Views: 17.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/appointments/17" for ::1 at 2016-05-05 20:06:46 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mAppointment Load (0.3ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 17]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1  [["appointment_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1[0m  [["appointment_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mSkill Load (0.3ms)[0m  SELECT "skills".* FROM "skills" INNER JOIN "appointment_skills" ON "skills"."id" = "appointment_skills"."skill_id" WHERE "appointment_skills"."appointment_id" = $1  [["appointment_id", 17]]
+  Rendered appointments/show.html.erb within layouts/student (8.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 108ms (Views: 29.3ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-05 20:06:46 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-05 20:06:46 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-05 20:06:46 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-05 20:06:46 -0400
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-05-05 20:06:46 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-05 20:06:46 -0400
+
+
+Started POST "/appointments/17/reviews" for ::1 at 2016-05-05 20:06:51 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sMLfGywQqCUgCm7uMrdaPRFiAlYmubcwmTeCo3M9XZGfzPOP0jWgP3sTfblPfcK/iANz1Ax/wmEGtpHNs5YSRQ==", "review"=>{"rating"=>"1", "content"=>"ioypiygio;ugb'ogioug]"}, "commit"=>"Create Review", "appointment_id"=>"17"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["rating", 1], ["content", "ioypiygio;ugb'ogioug]"], ["author_id", 2], ["appointment_id", 17], ["created_at", "2016-05-06 00:06:51.957222"], ["updated_at", "2016-05-06 00:06:51.957222"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/appointments/17
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/appointments/17" for ::1 at 2016-05-05 20:06:51 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mAppointment Load (0.3ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 17]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1[0m  [["appointment_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1  [["appointment_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mSkill Load (0.3ms)[0m  [1mSELECT "skills".* FROM "skills" INNER JOIN "appointment_skills" ON "skills"."id" = "appointment_skills"."skill_id" WHERE "appointment_skills"."appointment_id" = $1[0m  [["appointment_id", 17]]
+  Rendered appointments/show.html.erb within layouts/student (4.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+Completed 200 OK in 25ms (Views: 18.5ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/appointments/17/reviews" for ::1 at 2016-05-05 20:07:34 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aynMjrFy4uH7JOtEJ65hFO7hCDr7JN5P8Uw6GzR5aAVEJ+AaT1fq+6A9+BNaZPmWd4B5uNHiqx5uzSl19NIn0Q==", "review"=>{"rating"=>"4", "content"=>"asdf"}, "commit"=>"Create Review", "appointment_id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["rating", 4], ["content", "asdf"], ["author_id", 2], ["appointment_id", 17], ["created_at", "2016-05-06 00:07:34.174442"], ["updated_at", "2016-05-06 00:07:34.174442"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments/17
+Completed 302 Found in 66863ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/appointments/17" for ::1 at 2016-05-05 20:08:41 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mAppointment Load (0.2ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 17]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1  [["appointment_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1[0m  [["appointment_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mSkill Load (0.3ms)[0m  SELECT "skills".* FROM "skills" INNER JOIN "appointment_skills" ON "skills"."id" = "appointment_skills"."skill_id" WHERE "appointment_skills"."appointment_id" = $1  [["appointment_id", 17]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1[0m  [["appointment_id", 17]]
+  Rendered appointments/show.html.erb within layouts/student (9.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+Completed 200 OK in 101ms (Views: 24.8ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-05 20:08:41 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-05 20:08:41 -0400
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-05-05 20:08:41 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-05 20:08:41 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-05 20:08:41 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-05 20:08:41 -0400
+
+
+Started GET "/appointments/17" for ::1 at 2016-05-05 20:09:08 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mAppointment Load (0.3ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 17]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1  [["appointment_id", 17]]
+  [1m[36mReview Load (0.1ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" DESC LIMIT 1[0m  [["appointment_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mSkill Load (0.2ms)[0m  [1mSELECT "skills".* FROM "skills" INNER JOIN "appointment_skills" ON "skills"."id" = "appointment_skills"."skill_id" WHERE "appointment_skills"."appointment_id" = $1[0m  [["appointment_id", 17]]
+  Rendered appointments/show.html.erb within layouts/student (3.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+Completed 200 OK in 22ms (Views: 16.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-05 20:09:08 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-05 20:09:08 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-05 20:09:08 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-05 20:09:08 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-05 20:09:08 -0400
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-05-05 20:09:08 -0400
+
+
+Started POST "/appointments/17/reviews" for ::1 at 2016-05-05 20:09:18 -0400
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XkbEAIGIr7YhqlPc32wqc7PsvZyK4mJVL08JvytUM9FxSOiUf62nrHqzQIuiprLxKo3MHqAkFwSwzhrR6/98BQ==", "review"=>{"rating"=>"9/10", "content"=>"YEAAAAAH"}, "commit"=>"Create Review", "appointment_id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "reviews" ("rating", "content", "author_id", "appointment_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["rating", 9], ["content", "YEAAAAAH"], ["author_id", 2], ["appointment_id", 17], ["created_at", "2016-05-06 00:09:18.778141"], ["updated_at", "2016-05-06 00:09:18.778141"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/appointments/17
+Completed 302 Found in 6ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/appointments/17" for ::1 at 2016-05-05 20:09:18 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mAppointment Load (0.2ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 17]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1  [["appointment_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1[0m  [["appointment_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mSkill Load (0.3ms)[0m  SELECT "skills".* FROM "skills" INNER JOIN "appointment_skills" ON "skills"."id" = "appointment_skills"."skill_id" WHERE "appointment_skills"."appointment_id" = $1  [["appointment_id", 17]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1[0m  [["appointment_id", 17]]
+  Rendered appointments/show.html.erb within layouts/student (2.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+Completed 200 OK in 23ms (Views: 16.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/appointments/17" for ::1 at 2016-05-05 20:09:38 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mAppointment Load (0.2ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 17]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1  [["appointment_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1[0m  [["appointment_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mSkill Load (0.3ms)[0m  SELECT "skills".* FROM "skills" INNER JOIN "appointment_skills" ON "skills"."id" = "appointment_skills"."skill_id" WHERE "appointment_skills"."appointment_id" = $1  [["appointment_id", 17]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1[0m  [["appointment_id", 17]]
+  Rendered appointments/show.html.erb within layouts/student (3.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+Completed 200 OK in 27ms (Views: 20.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-05 20:09:38 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-05 20:09:38 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-05 20:09:38 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-05 20:09:38 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-05 20:09:38 -0400
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-05-05 20:09:38 -0400
+
+
+Started GET "/appointments/17" for ::1 at 2016-05-05 20:09:58 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mAppointment Load (0.2ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 17]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.3ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1  [["appointment_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1  ORDER BY "reviews"."id" ASC LIMIT 1[0m  [["appointment_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mSkill Load (0.3ms)[0m  SELECT "skills".* FROM "skills" INNER JOIN "appointment_skills" ON "skills"."id" = "appointment_skills"."skill_id" WHERE "appointment_skills"."appointment_id" = $1  [["appointment_id", 17]]
+  [1m[36mReview Load (0.1ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."appointment_id" = $1[0m  [["appointment_id", 17]]
+  Rendered appointments/show.html.erb within layouts/student (3.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+Completed 200 OK in 24ms (Views: 16.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-05 20:09:58 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-05 20:09:58 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-05 20:09:58 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-05 20:09:58 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-05 20:09:58 -0400
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-05-05 20:09:58 -0400
