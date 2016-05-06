@@ -1,33 +1,51 @@
-<%= form_for @user do |f| %>
-  <p>
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
-  </p>
-  <p>
-    <%= f.label :first_name %><br>
+<table class="create-user-form">
+  <%= form_for @user do |f| %>
+    <tr>
+    <td>
+      <%= f.label :type %>
+      <%= f.text_field :type %>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <%= f.label :first_name %>
     <%= f.text_field :first_name %>
-  </p>
-  <p>
-    <%= f.label :last_name %><br>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <%= f.label :last_name %>
     <%= f.text_field :last_name %>
-  </p>
-  <p>
-    <%= f.label :email %><br>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <%= f.label :email %>
     <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :phone %><br>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <%= f.label :phone %>
     <%= f.text_field :phone %>
-  </p>
-  <p>
-    <%= f.label :phase %><br>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <%= f.label :phase %>
     <%= f.text_field :phase %>
-  </p>
-  <p>
-    <%= f.label :password %><br>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <%= f.label :password %>
     <%= f.password_field :password %>
-  </p>
-  <p>
+    </td>
+    </tr>
+    <tr>
+    <td>
     <%= f.submit %>
-  </p>
-<% end %>
+    </td>
+    </tr>
+  <% end %>
+</table>

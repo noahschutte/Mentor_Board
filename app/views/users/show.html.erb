@@ -1,15 +1,18 @@
 <div>
-<h1><%= @user.first_name %> <%= @user.last_name %>'s Profile</h1>
-
-Email: <%= @user.email %><br>
-Phone: <%= @user.phone %><br>
-Phase: <%= @user.phase %><br>
-<%= @user.first_name %> is a <%= @user.type %><br>
+	<h1><%= @user.first_name %> <%= @user.last_name %>'s Profile</h1>
+	<table id="user_profile_info">
+		<tr><td>Email: <%= @user.email %></td></tr>
+		<tr><td>Phone: <%= @user.phone %></td></tr>
+		<tr><td>Phase: <%= @user.phase %></td></tr>
+		<tr><td><%= @user.first_name %> is a <%= @user.type %></td></tr>
+	</table>	
 </div>
 <hr>
+
 <h2>Past Mentoring Activity:</h2>
-<div>
+<table>
   <% @appointments.each do |appointment| %>
+<<<<<<< 4feb50d5fcad3971f9cb9eae3291901c9d084ae0
     <div>
       <h3><%= link_to "View Appointment", appointment_path(appointment.id) %></h3>
       Date: <%= appointment.datetime.strftime("%B %d, %Y") %><br>
@@ -19,5 +22,14 @@ Phase: <%= @user.phase %><br>
       <%= appointment.student.last_name %><br>
       <% end %>
     </div><br>
+=======
+	    <tr>
+	      <td><h3><%= link_to "View Appointment", appointment_path(appointment.id) %></h3></td>
+	      <td>Date: <%= appointment.datetime.strftime("%B %d, %Y") %></td>
+	      <td>Time: <%= appointment.datetime.strftime("%I:%M%p") %></td>
+	      <td>Student: <%= appointment.student.first_name %>
+	      <%= appointment.student.last_name %></td>
+	    </tr>
+>>>>>>> CSS for the Mentor Board
   <% end %>
-</div>
+</table>

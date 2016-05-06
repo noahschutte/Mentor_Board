@@ -1,3 +1,4 @@
+<<<<<<< 4feb50d5fcad3971f9cb9eae3291901c9d084ae0
 <h3>Upcoming Appointments:</h3>
 <% @appointments.each do |appointment| %>
   <div class="appointment-index-info">
@@ -28,3 +29,32 @@
   <% end %>
 </div>
 <% end %>
+=======
+<h2>Upcoming Appointments</h2>
+
+<table>
+	<% @appointments.each do |appointment| %>
+	  <div class="appointment-index-info">
+	  	<tr>
+		  	<td>
+		  			Mentor Name: <%= appointment.mentor.first_name %>
+			  <%= appointment.mentor.last_name %>
+				</td>
+				<td>
+		  		Date: <%= appointment.datetime.strftime("%B %d, %Y") %>
+				</td>
+				<td>
+		  		Time: <%= appointment.datetime.strftime("%I:%M%p") %>
+				</td>
+		  	<td>
+					<% if appointment.student %>
+		    		Student: <%= appointment.student.first_name %>
+		    		<%= appointment.student.last_name %><br>
+		    		<%= link_to "View Appointment Info", appointment_path(appointment) %>
+					<% end %>
+	  	</td>
+	  	</tr>
+		</div>
+	<% end %>
+</table>
+>>>>>>> CSS for the Mentor Board

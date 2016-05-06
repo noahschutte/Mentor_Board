@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Force Connect</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
-    <% if logged_in? %>
-      <h1><%= link_to "Force Connect", appointments_path %></h1>
-    <% end %>
 
-    <ul>
-      <li><%= link_to "View Appointments", appointments_path %></li>
-      <li><%= link_to "Profile", user_path(current_user) %></li>
-      <li><%= link_to "Logout", logout_path %></li>
-     </ul>
-    <hr>
-  </header>
+  <div class="row">
+    <nav class="menu">
+      <% if logged_in? %>
+        <h1><%= link_to "Force Connect", appointments_path %></h1>
+      <% end %>
+        <ul class="inline-list">
+          <li class="small-4 column"><%= link_to "View Appointments", appointments_path, class: "link" %></li>
+          <li class="small-4 column"><%= link_to "Profile", user_path(current_user), class: "link" %></li>
+          <li class="small-4 column"><%= link_to "Logout", logout_path, class: "link" %></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
 <%= yield %>
 
