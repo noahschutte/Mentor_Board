@@ -21,7 +21,9 @@
   <h3>Appointment Info</h3>
   Date: <%= @appointment.datetime.strftime("%B %d, %Y") %><br>
   Time: <%= @appointment.datetime.strftime("%I:%M%p") %><br>
-  Skills: <%= @appointment %>
+  Skills: <% @skills.each do |skill| %>
+    <%= skill.name %>
+    <% end %>
 </div>
 <hr>
   <% if @appointment.datetime + 30*60 < Time.now %>
@@ -35,7 +37,7 @@
         <% end %>
       <% else %>
         <h3>Reviews</h3>
-        <%= form_for @review do |f| %>
+        <%= form_for([@appointment, @review]) do |f| %>
           <p>
             <%= f.label :rating %><br>
             <%= f.text_field :rating %>
@@ -44,7 +46,6 @@
             <%= f.label :content %><br>
             <%= f.text_area :content %>
           </p>
-            <%= f.hidden_field(:appointment, :id) %>
           <p>
           <%= f.submit %>
           </p>

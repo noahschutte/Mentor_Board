@@ -3,8 +3,8 @@ class AppointmentsController < ApplicationController
   def index
     if current_user.type == "Mentor"
       @appointments = Appointment.where(mentor_id: current_user.id).where('datetime > ?', DateTime.now).order(datetime: :asc)
-    elsif
-      @appointments = Appointment.all
+    elsif current_user.type == "Student"
+      @appointments = Appointment.where('datetime > ?', DateTime.now).order(datetime: :asc)
     else
       redirect_to root_path
     end
@@ -16,6 +16,7 @@ class AppointmentsController < ApplicationController
     @student = @appointment.student
     @mentor = @appointment.mentor
     @reviews = @appointment.reviews
+    @skills = @appointment.skills
     if @reviews.first
       @type = @reviews.first.author.type
     elsif @reviews.last
