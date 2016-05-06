@@ -10,6 +10,18 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def update
+    @appointment = Appointment.find(params[:id])
+    if @appointment.student != nil
+      @appointment.update_attributes(student_id: nil)
+      redirect_to appointments_path
+    else
+      @appointment.update_attributes(student_id: current_user.id)
+      redirect_to appointment_path
+    end
+
+  end
+
   def show
     @appointment = Appointment.find(params[:id])
     @review = Review.new
@@ -49,6 +61,7 @@ class AppointmentsController < ApplicationController
       render 'new'
     end
   end
+
 
   private
   def appointment_params

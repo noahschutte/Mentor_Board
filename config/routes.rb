@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :appointments, only: [:new, :show, :index, :create] do
     resources :reviews, only: [:create]
   end
-
+  patch "appointments/:id" => 'appointments#update', :as => "update_appointment"
 end
 
