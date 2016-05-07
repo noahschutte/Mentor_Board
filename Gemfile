@@ -53,7 +53,7 @@ group :production do
   gem 'rails_12factor'
 end
 
-
+ruby '2.2.3'
 
 gem 'puma'
-
+gem 'dotenv-rails', groups: [:development, :test]
