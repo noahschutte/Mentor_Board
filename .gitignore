@@ -1,6 +1,7 @@
 .env
 
 *.rbc
+Gemfile.lock
 capybara-*.html
 .rspec
 /log
@@ -38,3 +39,5 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+/tmp/*
+tmp

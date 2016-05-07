@@ -1,0 +1,68 @@
+ul {
+    list-style-type: none;
+}
+
+.button.large{
+	cursor: pointer;
+	width: 50%;
+}
+
+.button-container{
+	text-align: center;
+}
+
+.log-in-form {
+	text-align: center;
+  border: 1px solid #cacaca;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.row {
+  max-width: 100%; }
+
+.menu {
+  background-color: #292c2f;
+  padding: 1.5rem 3rem;
+  height: auto;
+  font-size: 100%;
+}
+
+.menu .inline-list {
+    text-align: center;
+}
+
+.menu .inline-list li {
+  display: inline-block; 
+}
+
+.menu .inline-list .link{
+  color: #fff;
+  padding-bottom: 0.5rem; 
+}
+
+.menu .inline-list a:hover {
+  color: dodgerblue;
+  transition: all .3s ease-in-out; 
+}
+
+#create-user-form{
+	margin: auto;
+	width: 30%;
+}
+
+h1, h2{
+	margin-top: 1%;
+	text-align: center;
+}
+
+table{
+	width: 80%;
+	margin: auto;
+}
+
+#user_profile_info{
+	width: 20%;
+	margin: auto;
+	text-align: center;
+}

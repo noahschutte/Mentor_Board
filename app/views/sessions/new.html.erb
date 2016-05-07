@@ -1,7 +1,14 @@
-<%= form_tag sessions_path do %>
-  <%= label_tag :email %>
-  <%= email_field_tag :email %><br>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %><br>
-  <%= submit_tag "Login" %>
-<% end %>
+<div class="row">
+  <div class="small-2 small-centered small-3 small-centered columns">
+  	<%= form_tag sessions_path do %> 
+      <div class="log-in-form">
+        <h4 class="text-center">Login Here</h4>
+        <%= label_tag :email %>
+			  <%= email_field_tag :email %>
+			  <%= label_tag :password %>
+			  <%= password_field_tag :password %>
+			  <%= submit_tag "Login", :class => "button expanded" %>
+      </div>
+   	<% end %>
+  </div>
+</div>

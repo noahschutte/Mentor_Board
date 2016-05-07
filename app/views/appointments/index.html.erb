@@ -1,30 +1,41 @@
-<h3>Upcoming Appointments:</h3>
-<% @appointments.each do |appointment| %>
-  <div class="appointment-index-info">
-  <h4>Mentor Name: <%= appointment.mentor.first_name %>
-  <%= appointment.mentor.last_name %></h4>
-  Date: <%= appointment.datetime.strftime("%B %d, %Y") %><br>
-  Time: <%= appointment.datetime.strftime("%I:%M%p") %><br>
-  <!-- Add status of appointment (Open or Booked) -->
-  Appointment Status:
-  <% if appointment.student %>
-    Booked<br>
-  <% else %>
-    Available<br>
-    <% if current_user.type == 'Student' %>
-      <%= form_for appointment, method: :PATCH do |f| %>
-        <%= f.submit "Book Now" %>
-      <% end %>
-    <% end %>
-  <% end %>
+	<h2>Upcoming Appointments</h2>
 
-  <% if appointment.student %>
-    Student: <%= appointment.student.first_name %>
-    <%= appointment.student.last_name %><br>
-    <% if appointment.student.id == current_user.id || appointment.mentor.id == current_user.id %>
-      <%= link_to "Scheduled Appointment Info", appointment_path(appointment) %><br>
-    <% end %>
+	<table>
+		<% @appointments.each do |appointment| %>
+		<div class="appointment-index-info">
+			<tr>
+				<td>
+					Mentor Name: <%= appointment.mentor.first_name %>
+					<%= appointment.mentor.last_name %>
+				</td>
+				<td>
+					Date: <%= appointment.datetime.strftime("%B %d, %Y") %>
+				</td>
+				<td>
+					Time: <%= appointment.datetime.strftime("%I:%M%p") %>
+				</td>
+				<td>
+					Appointment Status:
+					  <% if appointment.student %>
+					    Booked<br>
+					  <% else %>
+					    Available<br>
+					    <% if current_user.type == 'Student' %>
+					      <%= form_for appointment, method: :PATCH do |f| %>
+					        <%= f.submit "Book Now" %>
+					      <% end %>
+					    <% end %>
+					    <% end %>
+					<% if appointment.student %>
+						Student: <%= appointment.student.first_name %>
+						<%= appointment.student.last_name %><br>
+						<% if appointment.student.id == current_user.id || appointment.mentor.id == current_user.id %>
+						<%= link_to "Scheduled Appointment Info", appointment_path(appointment) %><br>
+						<%end%>
+					<% end %>
+				</td>
+			</tr>
+		</div>
+		<% end %>
+	</table>
 
-  <% end %>
-</div>
-<% end %>
